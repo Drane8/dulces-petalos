@@ -13,13 +13,8 @@ export const routes: Routes = [
         canMatch: [authGuard()],
     },
     {
-        path: 'users/:username',
-        loadChildren: async () => (await import('@pages/user')).routes,
-        canMatch: [authGuard()],
-    },
-    {
-        path: 'settings',
-        loadChildren: async () => (await import('@pages/settings')).routes,
+        path: 'product/:id',
+        loadChildren: async () => (await import('@pages/product')).routes,
         canMatch: [authGuard()],
     },
     {

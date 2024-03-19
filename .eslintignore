@@ -7,6 +7,8 @@ node_modules
 .env
 .env.*
 !.env.example
+**/*.spec.ts
+cypress
 __generated__
 
 # Ignore files for PNPM, NPM and YARN
