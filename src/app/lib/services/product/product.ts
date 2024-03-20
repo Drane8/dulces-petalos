@@ -1,3 +1,9 @@
+/* eslint-disable @typescript-eslint/naming-convention*/
+export enum FertilizerType {
+    phosphorus = 'fosforado',
+    nitrogen = 'nitrogenado',
+}
+
 export interface Product {
     id: string;
     name?: string;
@@ -5,6 +11,6 @@ export interface Product {
     price?: number;
     imgUrl?: string;
     wateringsPerWeek?: number;
-    fertilizerType?: string;
+    fertilizerType?: FertilizerType;
     heightInCm?: number;
 }

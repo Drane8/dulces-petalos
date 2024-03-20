@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from '@lib/services/product/product';
+import { FertilizerType, Product } from '@lib/services/product/product';
 import { ProductService } from '@lib/services/product/product.service';
 
 @Component({
@@ -19,8 +19,14 @@ export class ProductDetailComponent implements OnInit {
             const id: string = params['id'] as string;
             this._productsService.getProductById(id).subscribe((product) => {
                 this.product = product;
+                this.product.fertilizerType = this._convertToFertilizerEnum(product.fertilizerType);
             });
         });
+    }
+
+    private _convertToFertilizerEnum(str?: string): FertilizerType | undefined {
+        const colorValue = FertilizerType[str as keyof typeof FertilizerType];
+        return colorValue;
     }
 
     goBack(): void {

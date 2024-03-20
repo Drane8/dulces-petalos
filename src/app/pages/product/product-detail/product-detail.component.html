@@ -12,19 +12,22 @@
         <!-- Image gallery -->
         <div class="mx-auto max-w-2xl sm:px-6 grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div class="aspect-h-4 aspect-w-3 overflow-hidden rounded-lg block">
-                <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                    alt="Front of men&#039;s Basic Tee in black."
+                <img [src]="product.imgUrl"
+                    [alt]="'Imagen de ' + product.name?.toLowerCase()"
                     class="h-full w-full object-cover object-center lg:h-full lg:w-full">
             </div>
 
             <!-- Product info -->
-            <div class="">
-                <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Basic Tee 6-Pack</h1>
-                <div class="space-y-6">
-                    <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant
-                        personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want
-                        to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of
-                        color to your outfit? Our white tee has you covered.</p>
+            <div class="flex flex-col mt-3 lg:mt-0">
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl mb-0">{{product.name}}</h1>
+                <p class="mt-1 text-lg text-gray-500 mb-6">{{product.binomialName}}</p>
+                <div class="space-y-2 mb-8">
+                    <p class="text-base text-gray-900"><b class="font-bold">Riegos por semana:</b> {{product.wateringsPerWeek}}</p>
+                    <p class="text-base text-gray-900"><b class="font-bold">Fertilizante recomendado:</b> {{product.fertilizerType}}</p>
+                    <p class="text-base text-gray-900"><b class="font-bold">Altura:</b> {{product.heightInCm}}cm</p>
+                </div>
+                <div class="flex place-self-end mt-auto">
+                    <p class="text-3xl font-medium text-gray-900">{{product.price}}€</p>
                 </div>
             </div>
 
