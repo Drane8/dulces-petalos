@@ -3,7 +3,7 @@ export interface Product {
     name?: string;
     binomialName?: string;
     price?: number;
-    imgurl?: string;
+    imgUrl?: string;
     wateringsPerWeek?: number;
     fertilizerType?: string;
     heightInCm?: number;

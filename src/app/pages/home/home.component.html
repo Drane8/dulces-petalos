@@ -12,33 +12,29 @@
                     </div>
                     <input type="search"
                         class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Buscar producto" />
+                        placeholder="Buscar producto" (input)="searchProduct(searchInput.value)" #searchInput/>
                 </div>
             </div>
             <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                <div class="group relative">
+                <div class="group relative" *ngFor="let product of filteredProducts">
                     <div
                         class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                        <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                            alt="Front of men&#039;s Basic Tee in black."
+                        <img [src]="product.imgUrl" [alt]="'Imagen de ' + product.name?.toLowerCase()" 
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
                     </div>
                     <div class="mt-4 flex justify-between">
                         <div>
-                            <h3 class="text-sm text-gray-700">
-                                <a [routerLink]="'product/ZmGrkLRPXOTpxsU4jjAcv'">
+                            <h3 class="text-sm text-gray-700 mb-0">
+                                <a [routerLink]="'product/' + product.id">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
-                                    Basic Tee
+                                    {{ product.name}}
                                 </a>
                             </h3>
-                            <p class="mt-1 text-sm text-gray-500">Black</p>
+                            <p class="mt-1 text-sm text-gray-500">{{product.binomialName}}</p>
                         </div>
-                        <p class="text-sm font-medium text-gray-900">$35</p>
+                        <p class="text-sm font-medium text-gray-900">{{product.price}}€</p>
                     </div>
                 </div>
-
-
-                <!-- More products... -->
             </div>
         </div>
     </div>
