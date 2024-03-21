@@ -9,13 +9,25 @@ export const routes: Routes = [
     },
     {
         path: '',
-        loadChildren: async () => (await import('@pages/home')).routes,
-        canMatch: [authGuard()],
+        redirectTo: 'home',
+        pathMatch: 'full',
     },
     {
-        path: 'product/:id',
-        loadChildren: async () => (await import('@pages/product')).routes,
-        canMatch: [authGuard()],
+        path: 'home',
+        children: [
+            {
+                path: '',
+                loadChildren: async () => (await import('@pages/home')).routes,
+                data: { breadcrumb: { alias: 'Home' } },
+                canMatch: [authGuard()],
+            },
+            {
+                path: 'product/:id',
+                loadChildren: async () => (await import('@pages/product')).routes,
+                canMatch: [authGuard()],
+                data: { breadcrumb: { alias: 'Product' } },
+            },
+        ],
     },
     {
         path: '**',

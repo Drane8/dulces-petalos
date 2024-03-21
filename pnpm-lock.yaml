@@ -35,6 +35,9 @@ dependencies:
   tslib:
     specifier: ^2.3.0
     version: 2.4.1
+  xng-breadcrumb:
+    specifier: ^10.0.2
+    version: 10.0.2(@angular/common@16.0.0)(@angular/core@16.0.0)(@angular/router@16.0.0)(rxjs@7.8.0)
   zone.js:
     specifier: ~0.13.0
     version: 0.13.0
@@ -6819,8 +6822,6 @@ packages:
     peerDependenciesMeta:
       webpack:
         optional: true
-      webpack-sources:
-        optional: true
     dependencies:
       webpack: 5.80.0(esbuild@0.17.18)
       webpack-sources: 3.2.3
@@ -10464,6 +10465,21 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
+
+  /xng-breadcrumb@10.0.2(@angular/common@16.0.0)(@angular/core@16.0.0)(@angular/router@16.0.0)(rxjs@7.8.0):
+    resolution: {integrity: sha512-wa+/7O8hDIXOovN0a6iVH87W29GsEFf4qU0gr0mH7Q+Jz4egBm3HuWnKAiD6UKDaZqFIjDL5bIorMOPBgYDMmg==}
+    peerDependencies:
+      '@angular/common': ^16.0.0
+      '@angular/core': ^16.0.0
+      '@angular/router': ^16.0.0
+      rxjs: ~7.8.0
+    dependencies:
+      '@angular/common': 16.0.0(@angular/core@16.0.0)(rxjs@7.8.0)
+      '@angular/core': 16.0.0(rxjs@7.8.0)(zone.js@0.13.0)
+      '@angular/router': 16.0.0(@angular/common@16.0.0)(@angular/core@16.0.0)(@angular/platform-browser@16.0.0)(rxjs@7.8.0)
+      rxjs: 7.8.0
+      tslib: 2.5.0
+    dev: false
 
   /y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}

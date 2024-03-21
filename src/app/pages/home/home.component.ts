@@ -3,23 +3,26 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Product } from '@lib/services/product/product';
 import { ProductService } from '@lib/services/product/product.service';
+import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, BreadcrumbModule],
     templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
     products: Product[] = [];
     filteredProducts: Product[] = [];
 
-    constructor(private _productsService: ProductService) {}
+    constructor(private _productsService: ProductService, private _breadcrumbService: BreadcrumbService) {}
 
     ngOnInit(): void {
         this._productsService.getProducts().subscribe((products) => {
             this.products = products;
             this.filteredProducts = products;
         });
+        this._breadcrumbService.set('@Home', 'Inicio');
+        this._breadcrumbService.set('@Product', 'Producto');
     }
 
     searchProduct(text?: string): void {
